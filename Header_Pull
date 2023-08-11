@@ -5,8 +5,8 @@ from scipy.optimize import curve_fit
 from lmfit import minimize, fit_report, Parameters
 
 filename = "D19_8K_12.0T.txt"
-filename_2 = "D19_8K_19.0T.txt"
-filename_3 = "D19_8K_6.0T.txt"
+filename2 = "D19_8K_19.0T.txt"
+filename3 = "D19_8K_6.0T.txt"
 
 #NUM_HEADERS = 1
 
@@ -15,13 +15,13 @@ filename_3 = "D19_8K_6.0T.txt"
 #print(f"1. Reading data with pandas: \n df={df}")
 
 #df = df.rename(
-    columns={
-        "Current (A)": "I",
-        "Voltage (µV)": "V",
-        "Time (s)": "time",
-        "Temperature (K)": "temp",
-    }
-)
+    #columns={
+        #"Current (A)": "I",
+        #"Voltage (µV)": "V",
+        #"Time (s)": "time",
+        #"Temperature (K)": "temp",
+    #}
+#)
 
 #print(f"1.5 The same dataframe with renamed columns: \n df={df}")
 
@@ -33,40 +33,40 @@ filename_3 = "D19_8K_6.0T.txt"
 
 #def simple_plot(x: list, y: list, title: str, xlabel: str, ylabel: str):
     # plt.figure()
-    plt.plot(x, y)
-    plt.scatter(x, y)
-    plt.title(title, fontsize=18)
-    plt.xlabel(xlabel, fontsize=16)
-    plt.ylabel(ylabel, fontsize=16)
-    plt.savefig(f"{title}.png")
-    plt.show()
+    #plt.plot(x, y)
+    #plt.scatter(x, y)
+    #plt.title(title, fontsize=18)
+    #plt.xlabel(xlabel, fontsize=16)
+    #plt.ylabel(ylabel, fontsize=16)
+    #plt.savefig(f"{title}.png")
+    #plt.show()
     # plt.close()
 
 #simple_plot(current_A, voltage_uV, "IV plot", "Current [A]", "Voltage [µV]")
 
 #import csv
 #with open(filename_2, "r", encoding="utf8", errors="ignore",) as f: 
-    fr = csv.reader(f, delimiter="\t")
-    file = open(filepath, "r", encoding="utf8", errors="ignore",)
-    fr = csv.reader(file, delimiter="\t")
-    text = ",".join(
-        [str(row) for row in fr]
-    )
+    #fr = csv.reader(f, delimiter="\t")
+    #file = open(filepath, "r", encoding="utf8", errors="ignore",)
+    #fr = csv.reader(file, delimiter="\t")
+    #text = ",".join(
+        #[str(row) for row in fr]
+    #)
     # print(f"text:{text}")
-    file.close()
+    #file.close()
 
 #def linear_IV_powerlaw(x, Ic, Vc, n, Vf, R):
-    return Vc * (x / Ic) ** n + R * x + Vf
+    #return Vc * (x / Ic) ** n + R * x + Vf
 
 #def curve_fit():
-    """
-    """
-    pass
+    #"""
+    #"""
+    #pass
 
 #def lmfit():
-    """
-    """
-    pass
+    #"""
+    #"""
+    #pass
 
 def parseTemp(filename:str):
     temp = float(re.findall('[0-9]*\.*[0-9]*(?=K)',filename)[0])
@@ -74,12 +74,14 @@ def parseTemp(filename:str):
 
 temp = parseTemp(filename)
 temp2 = parseTemp(filename2)
+temp3 = parseTemp(filename3)
 
 print("11. regex Expressions:")
 print(f"temp: {temp}")
 print(f"temp2: {temp2}")
+print(f"temp3: {temp3}")
 
 numbers = [0, 5, 8]
 first_item = numbers[0]
 second_item = numbers[1]
-
+third_item = numbers [2]
