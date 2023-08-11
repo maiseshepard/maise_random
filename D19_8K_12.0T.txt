@@ -1,0 +1,6 @@
+D19; width (m): 30u; thickness (m): 2u; length (m): 1m; Initial current [A]: 100m; Starting current (order/n): 3; Current limit [A]: 2.7; Voltage limit [V]: 55u; Lower V for fit [V]: 1.5u; Upper V for fit [V]: 40u; Expected n value: 20; Elec. field criteria [V/cm]: 1u; 
+B (T)	T (K)	angle (deg)	RHall (Ohm)	Ic (A)	n-value	time	Jc (A/cm2)	Fp (N/m3)
+12.002483	8.14023	0	3178.820545	1.279576E-10	0.164648	27.594578	0.000213	25.596818
+12.002239	8.41989	0	3179.462227	2.962722E-11	0.161775	49.211815	4.937871E-5	5.92655
+12.002154	8.40632	0	3187.733855	3.874273E-11	0.16464	49.262818	6.457121E-5	7.749937
+12.001993	8.35041	0	3185.178277	1.140007E-11	0.157385	49.182813	1.900012E-5	2.280393
