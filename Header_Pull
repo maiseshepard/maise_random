@@ -1,18 +1,20 @@
 import pandas as pd
+import re
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from lmfit import minimize, fit_report, Parameters
 
-filename = "MIT879 77.3K 1.000T 0°.dat"  # define a variable, filename. Set the value to the name of the file
-filename_2 = "/test_data/MIT879 20.0K 6.000T 0°.dat"
+filename = "D19_8K_12.0T.txt"
+filename_2 = "D19_8K_19.0T.txt"
+filename_3 = "D19_8K_6.0T.txt"
 
-NUM_HEADERS = 18
+#NUM_HEADERS = 1
 
-df = pd.read_csv(filename, sep="\t", encoding='latin', skiprows=NUM_HEADERS-1)
+#df = pd.read_csv(filename, sep="\t", encoding='latin', skiprows=NUM_HEADERS-1)
 
-print(f"1. Reading data with pandas: \n df={df}")
+#print(f"1. Reading data with pandas: \n df={df}")
 
-df = df.rename(
+#df = df.rename(
     columns={
         "Current (A)": "I",
         "Voltage (µV)": "V",
@@ -21,15 +23,15 @@ df = df.rename(
     }
 )
 
-print(f"1.5 The same dataframe with renamed columns: \n df={df}")
+#print(f"1.5 The same dataframe with renamed columns: \n df={df}")
 
-current_A = df["I"].astype(float).tolist()
-voltage_uV = df["V"].astype(float).tolist()
-temp_K = df["temp"].astype(float).tolist()
+#current_A = df["I"].astype(float).tolist()
+#voltage_uV = df["V"].astype(float).tolist()
+#temp_K = df["temp"].astype(float).tolist()
 
-print(f"2. Current [A]: {current_A} \n Voltage [µV]: {voltage_uV} \n Temp [K]: {temp_K}")
+#print(f"2. Current [A]: {current_A} \n Voltage [µV]: {voltage_uV} \n Temp [K]: {temp_K}")
 
-def simple_plot(x: list, y: list, title: str, xlabel: str, ylabel: str):
+#def simple_plot(x: list, y: list, title: str, xlabel: str, ylabel: str):
     # plt.figure()
     plt.plot(x, y)
     plt.scatter(x, y)
@@ -40,10 +42,10 @@ def simple_plot(x: list, y: list, title: str, xlabel: str, ylabel: str):
     plt.show()
     # plt.close()
 
-simple_plot(current_A, voltage_uV, "IV plot", "Current [A]", "Voltage [µV]")
+#simple_plot(current_A, voltage_uV, "IV plot", "Current [A]", "Voltage [µV]")
 
-import csv
-with open(filename_2, "r", encoding="utf8", errors="ignore",) as f: 
+#import csv
+#with open(filename_2, "r", encoding="utf8", errors="ignore",) as f: 
     fr = csv.reader(f, delimiter="\t")
     file = open(filepath, "r", encoding="utf8", errors="ignore",)
     fr = csv.reader(file, delimiter="\t")
@@ -53,24 +55,18 @@ with open(filename_2, "r", encoding="utf8", errors="ignore",) as f:
     # print(f"text:{text}")
     file.close()
 
-def linear_IV_powerlaw(x, Ic, Vc, n, Vf, R):
+#def linear_IV_powerlaw(x, Ic, Vc, n, Vf, R):
     return Vc * (x / Ic) ** n + R * x + Vf
 
-def curve_fit():
+#def curve_fit():
     """
     """
     pass
 
-def lmfit():
+#def lmfit():
     """
     """
     pass
-
-import re
-
-filename = "/TestData/C19/C19_8K_6T_0d2/0d.txt"
-filename2 = "/TestData/C19/C19_18.5K_6.5T_0d2/0d.txt"
-filename3 = "/TestData/C19/C19_20K_10T_120d/0d.txt"
 
 def parseTemp(filename:str):
     temp = float(re.findall('[0-9]*\.*[0-9]*(?=K)',filename)[0])
@@ -78,15 +74,12 @@ def parseTemp(filename:str):
 
 temp = parseTemp(filename)
 temp2 = parseTemp(filename2)
-temp3 = parseTemp(filename3)
 
 print("11. regex Expressions:")
 print(f"temp: {temp}")
 print(f"temp2: {temp2}")
-print(f"temp3: {temp3}")
 
 numbers = [0, 5, 8]
 first_item = numbers[0]
 second_item = numbers[1]
-third_item = numbers[2]
 
